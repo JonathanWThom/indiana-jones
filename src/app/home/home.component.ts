@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   users: User[];
+  userCreated: boolean = false;
+
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
@@ -19,5 +21,9 @@ export class HomeComponent implements OnInit {
 
   startGame()  {
     this.router.navigate(['room', 1]);
-  };
+  }
+
+  newUserSender() {
+    this.userCreated = true;
+  }
 }

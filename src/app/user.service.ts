@@ -17,4 +17,9 @@ export class UserService {
   healthMath(userEffect: number) {
     USERS[0].health += userEffect;
   }
+
+  removeUser(userToRemove: User) {
+    var userIndex = USERS.indexOf(userToRemove);
+    USERS.splice(userIndex, 1);
+  }
 }

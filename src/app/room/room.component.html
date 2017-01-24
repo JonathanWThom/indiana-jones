@@ -1,8 +1,3 @@
-<p>
-  room works!
-</p>
-<h2>This room has id number: {{roomId}}</h2>
-
 <h3>{{users[0].name}}</h3>
 <h3>{{users[0].profession}}</h3>
 <h3>{{users[0].gender}}</h3>
@@ -12,5 +7,12 @@
 <h3>{{roomToDisplay.content}}</h3>
 <h3>{{roomToDisplay.userEffect}}</h3>
 
-<button (click)="goToNextRoom(optionOne)">Option 1</button>
-<button (click)="goToNextRoom(optionTwo)">Option 2</button>
+<div *ngIf="!death">
+  <button (click)="goToNextRoom(optionOne)">Option 1</button>
+  <button (click)="goToNextRoom(optionTwo)">Option 2</button>
+</div>
+
+<div *ngIf="death">
+  <h3>You died!!!</h3>
+  <button class="btn" (click)="returnHome()">Return Home</button>
+</div>

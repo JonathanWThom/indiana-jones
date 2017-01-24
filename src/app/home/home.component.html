@@ -4,5 +4,6 @@
 <ul>
   <li *ngFor="let user of users">{{user.name}}</li>
 </ul>
-<new-user></new-user>
-<button class="btn btn-success" (click)="startGame()">Start Game</button>
+<new-user (newUserSender)="newUserSender()"></new-user>
+
+<button *ngIf="userCreated" class="btn btn-success" (click)="startGame()">Start Game</button>
