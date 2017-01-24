@@ -31,13 +31,11 @@ export class RoomComponent implements OnInit {
       this.optionOne = this.roomToDisplay.optionOne;
       this.optionTwo = this.roomToDisplay.optionTwo;
     });
-
   }
 
   goToNextRoom(nextRoomId: number) {
     console.log("Next room id:" +  nextRoomId);
     this.router.navigate(['room', nextRoomId]);
-    this.ngOnInit();
   }
 
 }
