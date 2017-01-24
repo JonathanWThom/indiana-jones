@@ -1,0 +1,14 @@
+<h3>New User</h3>
+<div class="form-group">
+ <label>User Name</label>
+ <input #newName>
+</div>
+ <div class="form-group">
+   <label>User Profession</label>
+   <input #newProfession>
+ </div>
+ <div class="form-group">
+   <label>User Gender</label>
+   <input #newGender>
+ </div>
+<button class="btn btn-success" (click)="makeUser(newName.value, newProfession.value, newGender.value)">Make User</button>
