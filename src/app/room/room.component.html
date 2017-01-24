@@ -1,18 +1,23 @@
-<h3>{{users[0].name}}</h3>
-<h3>{{users[0].profession}}</h3>
-<h3>{{users[0].gender}}</h3>
-<h3>{{users[0].health}}</h3>
-
-<h3>{{roomToDisplay.name}}</h3>
+<h3>{{users[0].name}} | {{users[0].gender}} | {{users[0].profession}} | <span class="green">Health: {{users[0].health}} points</span></h3>
+<h3 class="room">You have entered the {{roomToDisplay.name}}.</h3>
 <h3>{{roomToDisplay.content}}</h3>
-<h3>{{roomToDisplay.userEffect}}</h3>
+<!-- <div *ngIf="roomToDisplay.userEffect === 0">
+
+</div> -->
+<div *ngIf="roomToDisplay.userEffect > 0">
+  <h3 class="green">This room added {{roomToDisplay.userEffect}} points to your health!</h3>
+</div>
+
+<div *ngIf="roomToDisplay.userEffect < 0">
+  <h3 class="red">This room took away {{roomToDisplay.userEffect * -1}} points from your health!</h3>
+</div>
 
 <div *ngIf="!death">
-  <button (click)="goToNextRoom(optionOne)">Option 1</button>
-  <button (click)="goToNextRoom(optionTwo)">Option 2</button>
+  <button class="btn btn-danger"(click)="goToNextRoom(optionOne)">Option 1</button>
+  <button class="btn btn-info"(click)="goToNextRoom(optionTwo)">Option 2</button>
 </div>
 
 <div *ngIf="death">
-  <h3>You died!!!</h3>
+  <h3 class="red">You died!!!</h3>
   <button class="btn" (click)="returnHome()">Return Home</button>
 </div>
