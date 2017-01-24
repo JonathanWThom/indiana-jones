@@ -24,10 +24,11 @@ export class RoomComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService, private roomService: RoomService) { }
 
   ngOnInit() {
-    this.users = this.userService.getUsers();
     this.route.params.forEach((urlParametersArray) => {
+      this.users = this.userService.getUsers();
       this.roomId = parseInt(urlParametersArray['id']);
       this.roomToDisplay = this.roomService.getRoomById(this.roomId);
+      this.userService.healthMath(this.roomToDisplay.userEffect);
       this.optionOne = this.roomToDisplay.optionOne;
       this.optionTwo = this.roomToDisplay.optionTwo;
     });

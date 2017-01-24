@@ -11,8 +11,10 @@ export class UserService {
     return USERS;
   }
 
-  addUser(newUser) {
+  addUser(newUser: User) {
     USERS.push(newUser);
   }
-
+  healthMath(userEffect: number) {
+    USERS[0].health += userEffect;
+  }
 }
