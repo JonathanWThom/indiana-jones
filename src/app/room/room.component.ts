@@ -21,6 +21,7 @@ export class RoomComponent implements OnInit {
   optionOne: number = null;
   optionTwo: number = null;
   death: boolean = false;
+  gameOver: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService, private roomService: RoomService) { }
 
@@ -34,6 +35,10 @@ export class RoomComponent implements OnInit {
       this.optionTwo = this.roomToDisplay.optionTwo;
       if (this.users[0].health <= 0) {
         this.death = true;
+        this.gameOver = true;
+      }
+      if (this.roomToDisplay.id === 15) {
+        this.gameOver = true;
       }
     });
   }

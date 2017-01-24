@@ -12,12 +12,18 @@
   <h3 class="red">This room took away {{roomToDisplay.userEffect * -1}} points from your health!</h3>
 </div>
 
-<div *ngIf="!death">
+<div *ngIf="!gameOver">
   <button class="btn btn-danger"(click)="goToNextRoom(optionOne)">Option 1</button>
   <button class="btn btn-info"(click)="goToNextRoom(optionTwo)">Option 2</button>
 </div>
 
 <div *ngIf="death">
   <h3 class="red">You died!!!</h3>
+  <button class="btn" (click)="returnHome()">Return Home</button>
+</div>
+
+
+<div *ngIf="roomToDisplay.id === 15">
+  <h3 class="green">Congratulations! You've won!</h3>
   <button class="btn" (click)="returnHome()">Return Home</button>
 </div>
