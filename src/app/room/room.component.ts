@@ -20,22 +20,22 @@ export class RoomComponent implements OnInit {
   roomToDisplay: Room;
   optionOne: number = null;
   optionTwo: number = null;
+
   constructor(private router: Router, private route: ActivatedRoute, private location: Location, private userService: UserService, private roomService: RoomService) { }
 
   ngOnInit() {
-    console.log('running again');
     this.users = this.userService.getUsers();
     this.route.params.forEach((urlParametersArray) => {
       this.roomId = parseInt(urlParametersArray['id']);
+      this.roomToDisplay = this.roomService.getRoomById(this.roomId);
+      this.optionOne = this.roomToDisplay.optionOne;
+      this.optionTwo = this.roomToDisplay.optionTwo;
     });
-    console.log(this.roomId);
-    this.roomToDisplay = this.roomService.getRoomById(this.roomId);
-    console.log(this.roomToDisplay);
-    this.optionOne = this.roomToDisplay.optionOne;
-    this.optionTwo = this.roomToDisplay.optionTwo;
+
   }
 
   goToNextRoom(nextRoomId: number) {
+    console.log("Next room id:" +  nextRoomId);
     this.router.navigate(['room', nextRoomId]);
     this.ngOnInit();
   }
