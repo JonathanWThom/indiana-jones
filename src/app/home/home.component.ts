@@ -17,4 +17,7 @@ export class HomeComponent implements OnInit {
     this.users = this.userService.getUsers();
   }
 
+  startGame()  {
+    this.router.navigate(['room', 1]);
+  };
 }
